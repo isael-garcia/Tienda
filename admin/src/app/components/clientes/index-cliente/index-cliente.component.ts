@@ -9,9 +9,12 @@ import { ClienteService } from 'src/app/services/cliente.service';
 export class IndexClienteComponent implements OnInit {
 
   public clientes: Array<any> = [];
+  public filtro_apellidos =  '';
+  public filtro_correo = '';
 
   constructor(
     private _clienteService : ClienteService,
+    
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,11 @@ export class IndexClienteComponent implements OnInit {
         console.log(error)
       }
         )
+  }
+  filtro(tipo:any){
+    console.log(tipo);
+    console.log(this.filtro_apellidos);
+    console.log(this.filtro_correo);
   }
 
 }
