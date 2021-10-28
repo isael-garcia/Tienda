@@ -9,7 +9,7 @@ const registro_cliente = async function(req, res) {
     clientes_arr = await Cliente.find({ email: data.email });
 
     if (clientes_arr.length == 0) {
-        // var reg = await Cliente.create(data);
+         var reg = await Cliente.create(data);
         if (data.password) {
             bcrypt.hash(data.password, null, null, async function(err, hash) {
                 if (hash) {
@@ -73,7 +73,7 @@ const listar_clientes_filtro_admin = async function(req, res) {
     }
 
     let reg = await Cliente.find();
-    res.status(200).send({ data: reg });
+    
 }
 
 module.exports = {
